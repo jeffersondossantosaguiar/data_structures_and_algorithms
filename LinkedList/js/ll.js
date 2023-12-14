@@ -58,10 +58,20 @@ class LinkedList {
     this.length++
     return this
   }
+
+  shift() {
+    if (!this.head) return undefined
+    let temp = this.head
+    this.head = this.head.next
+    temp.next = null
+    this.length--
+    if (this.length == 0) this.tail = null
+    return temp
+  }
 }
 
 let myLinkedList = new LinkedList(7)
 myLinkedList.push(4)
-console.log(myLinkedList)
-myLinkedList.unshift(25)
-console.log(myLinkedList)
+console.log("result", myLinkedList.shift())
+console.log("result", myLinkedList.shift())
+console.log("result", myLinkedList.shift())
